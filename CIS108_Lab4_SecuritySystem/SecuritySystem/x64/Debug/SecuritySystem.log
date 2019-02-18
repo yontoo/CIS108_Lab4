@@ -1,3 +1,2 @@
 ﻿  SecuritySystem.cpp
-c:\users\rta0088\cis108\cis108_lab4\cis108_lab4_securitysystem\securitysystem\securitysystem.cpp(194): error C2664: 'void DoorLock::initializeDoorLock(DoorLock::DoorLockEventHandler)': cannot convert argument 1 from 'void (__cdecl *)(DoorLock::DoorLockEvent,int)' to 'DoorLock::DoorLockEventHandler'
-  c:\users\rta0088\cis108\cis108_lab4\cis108_lab4_securitysystem\securitysystem\securitysystem.cpp(194): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+  SecuritySystem.vcxproj -> C:\Users\Tray\Documents\CIS 108\CIS108_Lab4\CIS108_Lab4_SecuritySystem\x64\Debug\SecuritySystem.exe

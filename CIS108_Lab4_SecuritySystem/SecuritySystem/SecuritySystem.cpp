@@ -37,7 +37,7 @@ bool isPersonAllowed (std::string person)
 	{
 		if (person == ALLOW_ACCESS[x])
 		{
-			is_allowed = true;
+			is_allowed = true;			//Syntax error here.
 			break;
 		}
 	}
@@ -46,7 +46,7 @@ bool isPersonAllowed (std::string person)
 }
 
 // Handles events from the smart door lock IoT device
-void ssDoorLockEventHandler (DoorLock::DoorLockEvent event, int pin_code)
+void ssDoorLockEventHandler (DoorLock::DoorLockEvent event, std::string pin_code)
 {
 	// NOTE: The pin_code is only valid for the PIN_CODE_ENTERED event
 
@@ -62,7 +62,7 @@ void ssDoorLockEventHandler (DoorLock::DoorLockEvent event, int pin_code)
 
 		case DoorLock::DoorLockEvent::DOOR_OPENED:
 		{
-			if (allowed_person_inside)
+			if (allowed_person_inside)			//Syntax error here.
 			{
 				// it appears the person is leaving
 				allowed_person_inside = false;
@@ -77,7 +77,7 @@ void ssDoorLockEventHandler (DoorLock::DoorLockEvent event, int pin_code)
 				else
 				{
 					// access was NOT granted to this person
-					SecurityAlarm::triggerAlarm (true);
+					SecurityAlarm::triggerAlarm(true);			//Syntax error here.
 				}
 			}
 		} break;
@@ -90,7 +90,7 @@ void ssDoorLockEventHandler (DoorLock::DoorLockEvent event, int pin_code)
 
 		case DoorLock::DoorLockEvent::PIN_CODE_ENTERED:
 		{
-			if (pin_code == stoi(SECURE_PIN_CODE))
+			if (stoi(pin_code) == stoi(SECURE_PIN_CODE))		//Data-type error here.
 			{
 				access_granted = true;
 				DoorLock::unlockDoor ();
@@ -115,7 +115,7 @@ void ssVideoDoorbellEventHandler (VideoDoorbell::VideoDoorbellEvent event, std::
 		{
 			MobileAppInterface::notifyFrontDoorActivity (true, person_at_door);
 
-			if (!isPersonAllowed (person_at_door))
+			if (isPersonAllowed (person_at_door))		//Logical error here.
 			{
 				access_granted = true;
 				DoorLock::unlockDoor ();
@@ -124,7 +124,7 @@ void ssVideoDoorbellEventHandler (VideoDoorbell::VideoDoorbellEvent event, std::
 
 		case VideoDoorbell::VideoDoorbellEvent::NO_ONE_AT_THE_DOOR:
 		{
-			MobileAppInterface::notifyFrontDoorActivity(false);
+			MobileAppInterface::notifyFrontDoorActivity(false);			//Syntax error here.
 		} break;
 	}
 }
