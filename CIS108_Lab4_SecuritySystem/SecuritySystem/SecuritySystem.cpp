@@ -77,7 +77,7 @@ void ssDoorLockEventHandler (DoorLock::DoorLockEvent event, std::string pin_code
 				else
 				{
 					// access was NOT granted to this person
-					SecurityAlarm::triggerAlarm(true);			//Syntax error here.
+					SecurityAlarm::triggerAlarm(true);			//Data-type error here.
 				}
 			}
 		} break;
